@@ -21,5 +21,4 @@ functions:
     # The `events` block defines how to trigger the handler.helloWorld code
     events:
       - http: ANY /
-          cors: true
-      -http: 'ANY {proxy+}'
+      - http: 'ANY {proxy+}'
