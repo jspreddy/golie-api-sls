@@ -5,31 +5,21 @@
 # uses to deploy your code to your provider of choice
 
 # The `service` block is the name of the service
-service: sls-hello-world
+service: sls-express-app
 
 # The `provider` block defines where your service will be deployed
 provider:
   name: aws
   runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
 
 # The `functions` block defines what code to deploy
 functions:
-  helloWorld:
-    handler: handler.helloWorld
+  app:
+    handler: index.handler
     # The `events` block defines how to trigger the handler.helloWorld code
     events:
-      - http:
-          path: hello-world
-          method: get
+      - http: ANY /
           cors: true
-
-  
-  helloName:
-    handler: handler.helloName
-    events:
-      - http:
-          path: hello-name
-          method: get
-          cors: true
-
-          
+      -http: 'ANY {proxy+}'
