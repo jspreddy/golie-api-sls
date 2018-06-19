@@ -3,9 +3,9 @@ const express = require('express');
 const app = express();
 
 app.get('/', function (req, res) {
-    return {
+    res.send({
         response:"hello world!"
-    };
+    });
 });
 
 module.exports.handler = serverless(app);
