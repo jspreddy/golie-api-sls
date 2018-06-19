@@ -18,7 +18,6 @@ provider:
 functions:
   app:
     handler: index.handler
-    # The `events` block defines how to trigger the handler.helloWorld code
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
