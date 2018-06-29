@@ -18,7 +18,14 @@
   },
   "homepage": "https://github.com/jspreddy/golie-api-sls#readme",
   "dependencies": {
+    "aws-sdk": "^2.265.1",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "serverless-http": "^1.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
   }
 }
