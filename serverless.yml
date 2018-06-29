@@ -19,16 +19,16 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb: Query
-        - dynamodb: Scan
-        - dynamodb: GetItem
-        - dynamodb: PutItem
-        - dynamodb: UpdateItem
-        - dynamodb: DeleteItem
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
       Resource: 
         - { "Fn::GetAtt": ["GolieDynamoDBTable", "Arn"]}
   environment:
-    GOLIE_TABLE: ${self:custom.tableName}
+    GOALIE_TABLE: ${self:custom.tableName}
 
 
 # The `functions` block defines what code to deploy
@@ -41,20 +41,18 @@ functions:
 
 resources:
   Resources:
-    GolieDynnamoDBTable:
+    GolieDynamoDBTable:
       Type: 'AWS::DynamoDB::Table'
-      Properties: 
+      Properties:
         AttributeDefinitions:
           -
             AttributeName: golieId
             AttributeType: S
         KeySchema:
-          - 
+          -
             AttributeName: golieId
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:custom.tableName}
-
-  

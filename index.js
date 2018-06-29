@@ -27,7 +27,6 @@ app.get('/goal/:goalId', (req, res) => {
 
   dynamoDb.get(params, (error, result) => {
     if (error) {
-      console.log(error);
       res.status(400).json({
         error: `Could not get the goal with id: ${req.params.goalId}`,
       });
