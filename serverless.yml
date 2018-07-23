@@ -5,16 +5,17 @@
 # uses to deploy your code to your provider of choice
 
 # The `service` block is the name of the service
-service: sls-express-app
+service: golie-api
 
 custom:
-  tableName: golie-table-${self:provider.stage}
+  stage: ${opt:stage}
+  tableName: golie-table-${opt:stage}
 
 # The `provider` block defines where your service will be deployed
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: ${opt:stage}
   region: us-east-1
   iamRoleStatements:
     - Effect: Allow
