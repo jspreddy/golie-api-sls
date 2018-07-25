@@ -7,9 +7,19 @@
 # The `service` block is the name of the service
 service: golie-api
 
+frameworkVersion: ">=1.0.0 <2.0.0"
+
+plugins:
+  - serverless-offline
+
+
 custom:
   stage: ${opt:stage}
   tableName: golie-table-${opt:stage}
+  serverless-offline:
+    host: 127.0.0.1
+    port: 54224
+
 
 # The `provider` block defines where your service will be deployed
 provider:
@@ -26,7 +36,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 
+      Resource:
         - { "Fn::GetAtt": ["GolieDynamoDBTable", "Arn"]}
   environment:
     GOALIE_TABLE: ${self:custom.tableName}
