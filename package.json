@@ -4,7 +4,9 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "start": "DEBUG=* serverless --stage=dev offline"
+    "start": "DEBUG=* serverless --stage=dev offline",
+    "package": "DEBUG=* serverless --stage=dev offline",
+    "deploy": "serverless --stage=dev deploy"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,8 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
-    "serverless-offline": "^3.25.6"
+    "serverless-offline": "^3.25.6",
+    "serverless-webpack": "^5.2.0",
+    "webpack": "^4.16.2"
   }
 }

@@ -11,6 +11,7 @@ frameworkVersion: ">=1.0.0 <2.0.0"
 
 plugins:
   - serverless-offline
+  - serverless-webpack
 
 
 custom:
@@ -56,12 +57,10 @@ resources:
       Type: 'AWS::DynamoDB::Table'
       Properties:
         AttributeDefinitions:
-          -
-            AttributeName: golieId
+          - AttributeName: golieId
             AttributeType: S
         KeySchema:
-          -
-            AttributeName: golieId
+          - AttributeName: golieId
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
