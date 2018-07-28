@@ -5,4 +5,5 @@ module.exports = {
   target: 'node',
   plugins: [],
   stats: 'minimal',
+  mode: 'development',
 };

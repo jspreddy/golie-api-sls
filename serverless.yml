@@ -49,6 +49,8 @@ provider:
         - { "Fn::GetAtt": ["GolieDynamoDBTable", "Arn"]}
   environment:
     GOALIE_TABLE: ${self:custom.tableName}
+  apiKeys:
+    - ${self:service}-${self:custom.stage}-apikey
 
 
 # The `functions` block defines what code to deploy
@@ -56,8 +58,17 @@ functions:
   app:
     handler: index.handler
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          path: /
+          method: ANY
+          cors: true
+          private: true
+      - http:
+          path: '{proxy+}'
+          method: ANY
+          cors: true
+          private: true
+
 
 resources:
   Resources:

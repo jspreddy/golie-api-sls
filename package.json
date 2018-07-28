@@ -4,8 +4,8 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "start": "DEBUG=* serverless --stage=dev offline",
-    "package": "DEBUG=* serverless --stage=dev package",
+    "start": "DEBUG=golie serverless --stage=dev offline",
+    "package": "SLS_DEBUG=* DEBUG=golie serverless --stage=dev package",
     "deploy": "SLS_DEBUG=* serverless --stage=dev deploy"
   },
   "repository": {
@@ -23,8 +23,10 @@
     "aws-sdk": "^2.265.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "debug": "^3.1.0",
     "dynamodb": "^1.1.2",
     "express": "^4.16.3",
+    "joi": "^13.4.0",
     "moment": "^2.22.2",
     "serverless-http": "^1.6.0"
   },
