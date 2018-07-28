@@ -5,8 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "start": "DEBUG=* serverless --stage=dev offline",
-    "package": "DEBUG=* serverless --stage=dev offline",
-    "deploy": "serverless --stage=dev deploy"
+    "package": "DEBUG=* serverless --stage=dev package",
+    "deploy": "SLS_DEBUG=* serverless --stage=dev deploy"
   },
   "repository": {
     "type": "git",

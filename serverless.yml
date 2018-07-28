@@ -20,6 +20,14 @@ custom:
   serverless-offline:
     host: 127.0.0.1
     port: 54224
+  webpack:
+    webpackConfig: 'webpack.config.js'   # Name of webpack configuration file
+    includeModules:   # Node modules configuration for packaging
+      forceExclude:
+        - aws-sdk
+    packager: 'npm'   # Packager that will be used to package your external modules
+    packagePath: '../package.json'
+
 
 
 # The `provider` block defines where your service will be deployed
